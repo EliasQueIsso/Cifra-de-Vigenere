@@ -1,3 +1,4 @@
+'''
 from vigenere import Vigenere
 import sys
 
@@ -15,3 +16,4 @@ txt_cifrado = cifra.cripto(txt_in, password)
 print
 print('Texto cifrado: {0}'.format(txt_cifrado))
 print('  Texto plano: {0}'.format(cifra.descripto(txt_cifrado, password)))
+'''

@@ -1,3 +1,4 @@
+'''
 from cipher import Cipher
 
 class Vigenere(Cipher):
@@ -26,3 +27,4 @@ class Vigenere(Cipher):
         return textout
     def descripto(self,  ciphertext, password):
         return self.cripto(ciphertext, password, True)
+'''
