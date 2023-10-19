@@ -14,7 +14,7 @@ print("Este é um programa feito pra você denunciar anonimamente um crime ambie
 print(" ")
 print("*"*25)
 
-denuncia = input("Deseja fazer uma denúncia?\nS/N")
+denuncia = input("Deseja fazer uma denúncia?\nS/N: ")
 
 match denuncia:
     case 'S':
@@ -24,14 +24,20 @@ match denuncia:
         cifra = Vigenere()
         txt_cifrado = cifra.cripto(txt_in, password)
         print('Denúncia criptografada: {0}'.format(txt_cifrado))
-        print('Muito obrigado pela sua denúncia, o meio ambiente agradece')
+        print('Muito obrigado pela sua denúncia, o meio ambiente agradece.')
     case 'N':
-        txt_cifrado = leitura('Escreva a denúncia criptografa: ')
-        password = leitura('Informe a senha usada na criptografia: ')
+        descripto = input("Deseja descriptografar uma denúncia?\nS/N: ")
+        if (descripto == 'S'):    
+            txt_cifrado = leitura('Escreva a denúncia criptografa: ')
+            password = leitura('Informe a senha usada na criptografia: ')
 
-        cifra = Vigenere()
-        txt_descripto = cifra.descripto(txt_cifrado, password)
-        print('Denúncia descriptografada: {0}'.format(txt_descripto))
+            cifra = Vigenere()
+            txt_descripto = cifra.descripto(txt_cifrado, password)
+            print('Denúncia descriptografada: {0}'.format(txt_descripto))
+        elif (descripto == 'N'):
+            print('Obrigado por usar o nosso software.')
+        else:
+            print('Insira uma opção váida.')
     case _:
         print('Insira uma opção válida.')
 '''
