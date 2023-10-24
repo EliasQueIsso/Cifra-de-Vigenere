@@ -1,21 +1,25 @@
 from cipher import Cipher
 
 class Vigenere(Cipher):
+
     def __init__(self):
         self.plain = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    def repeat_password(self, password, text):
-        if len(password) < len(text):
-            new_pass = password * int((len(text)/len(password)))
+
+    def repetir_senha(self, senha, text):
+        #Repete até o tamanho do texto inserido
+        if len(senha) < len(text):
+            new_pass = senha * int((len(text)/len(senha)))
             if len(new_pass):
-                new_pass += password[:len(new_pass)]
+                new_pass += senha[:len(new_pass)]
             return new_pass.upper()
-        return password.upper()
-    def cripto(self, plaintext, password, descripto=False):
-        password = self.repeat_password(password, plaintext)
+        return senha.upper()
+    
+    def cifra(self, plaintext, senha, descripto=False):
+        senha = self.repetir_senha(senha, plaintext)
         plaintext = self.format_str(plaintext)
         textout = ''
         for idx, char in enumerate(plaintext.upper()):
-            idx_key = self.plain.find(password[idx])
+            idx_key = self.plain.find(senha[idx])
             c_alphabet = self.shift_alphabet(self.plain, idx_key)
             if descripto:
                 idx_p = c_alphabet.find(char)
@@ -24,5 +28,6 @@ class Vigenere(Cipher):
                 idx_p = self.plain.find(char)
                 textout += c_alphabet[idx_p]
         return textout
-    def descripto(self,  ciphertext, password):
-        return self.cripto(ciphertext, password, True)
+    
+    def decifra(self,  ciphertext, senha):
+        return self.cifra(ciphertext, senha, True)
