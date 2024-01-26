@@ -37,13 +37,3 @@ match denuncia_upper:
             print('Insira uma opção váida.')
     case _:
         print('Insira uma opção válida.')
-'''
-txt_in = leitura('Texto a ser cifrado: ')
-senha = leitura('Senha: ')
-
-cifra = Vigenere()
-txt_cifrado = cifra.cripto(txt_in, senha)
-print
-print('Texto cifrado: {0}'.format(txt_cifrado))
-print('  Texto plano: {0}'.format(cifra.descripto(txt_cifrado, senha)))
-'''
